@@ -6,7 +6,7 @@ Following a comprehensive literature review, three distinct active balancing top
 
 ---
 
-## Simulated Topologies 
+##  Simulated Topologies (Phase 1)
 
 ### 1. Single-Tiered Switched Capacitor
 This topology stands out for its simplicity in control and cost-effectiveness. However, its primary drawback is the extended balancing time, as the energy transfer rate is strictly limited by the capacity of a single capacitor moving charge only between adjacent cells.
@@ -16,7 +16,7 @@ This topology stands out for its simplicity in control and cost-effectiveness. H
 ### 2. Double-Tiered Switched Capacitor
 To overcome the limitations of the single-tiered approach, the double-tiered topology was implemented. This architecture allows for energy transfer not just between adjacent neighbors, but also between non-adjacent cells. As a result, it significantly reduces the overall balancing time, offering a clear advantage over the single-switched method.
 
-![Double Tiered Switched Capacitor](Part1_Figures/Double%20Tiered%20Switched%20Capacitor%20Simulink%20SS.png)
+![Double Tiered Switched Capacitor](Part1_Figures/Figure2_Double%20Tiered%20Switched%20Capacitor%20Simulink%20SS.png)
 
 ### 3. Single-Tiered Switched Inductor
 The switched-inductor topology offers the fastest balancing time among the three. However, this speed comes at a cost: inductors inherently suffer from higher energy dissipation compared to capacitors. These increased energy losses can render the overall system less efficient, making thermal management and efficiency a challenge.
