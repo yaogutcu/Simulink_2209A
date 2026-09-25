@@ -22,3 +22,19 @@ To overcome the limitations of the single-tiered approach, the double-tiered top
 The switched-inductor topology offers the fastest balancing time among the three. However, this speed comes at a cost: inductors inherently suffer from higher energy dissipation compared to capacitors. These increased energy losses can render the overall system less efficient, making thermal management and efficiency a challenge.
 
 ![Single Tiered Switched Inductor](Part1_Figures/Figure3_Single%20Tiered%20Switched%20Inductor%20Simulink%20SS.png)
+
+## ⚙️ Phase 2: Topology Selection & Battery Modeling
+
+Based on the preliminary analysis, the **Double-Tiered Switched Capacitor (DTSC)** topology was selected for further development due to its superior design flexibility and high potential for scalability.
+
+Following the topology selection, research was conducted on State of Charge (SoC) and State of Health (SoH) estimation techniques. Given the high complexity of accurate SoH estimation, it was excluded from the current scope of this project. To estimate the SoC accurately, the **2nd-Order Equivalent Circuit Model (ECM)** was selected among various methods. The dynamic parameters for this model were derived from Arzu Türksoy's doctoral thesis, which enabled the creation of a highly precise battery cell model in MATLAB/Simulink.
+
+![Figure 1: Current Path Simulation](Part2_Figures/Figure1_Current%20Path.png)
+
+Once the accurate battery model was established, the focus shifted to the control logic of the DTSC topology. The control mechanism is intentionally straightforward but highly effective: it operates by driving the upper and lower balancing switches at a fixed **50% duty cycle**.
+
+![Figure 2: Alternative Current Path](Part2_Figures/Figure2_Current%20Path.png)
+
+Finally, by integrating the advanced 2nd-order ECM battery model with the 50% duty cycle DTSC control strategy, full-scale system simulations were executed. The simulation results were then thoroughly analyzed to evaluate the balancing performance and overall energy transfer efficiency across the battery pack.
+
+![Figure 3: Complete Simulation Topology](Part2_Figures/Figure3_Simulation%20Topology.png)
