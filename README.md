@@ -33,6 +33,18 @@ Following the topology selection, research was conducted on State of Charge (SoC
 
 Once the accurate battery model was established, the focus shifted to the control logic of the DTSC topology. The control mechanism is intentionally straightforward but highly effective: it operates by driving the upper and lower balancing switches at a fixed **50% duty cycle**.
 
+## 🚀 Phase 3: Quasi-Resonant Topology & Prototyping
+To more easily determine the optimal switching frequency of the DTSC topology, minimize switching losses, and maximize energy transfer efficiency, inductors were added in series with the capacitors. This modification upgrades the design into a **Quasi-Resonant Double-Tiered Switched Capacitor** topology.
+![Figure 1: Quasi-Resonant Topology](Part3_Figures/Figure1_Quasi.png)
+After determining the optimal circuit parameters, the system was simulated for a highly unbalanced scenario where the initial states were **SoC1 > SoC2 > SoC3**. The resulting balancing waveforms successfully demonstrate the dynamic energy transfer between the cells.
+![Figure 2: Balancing Waves](Part3_Figures/Figure2_Balancing%20Waves.png)
+Because the system operates at a high switching frequency of **50 kHz**, simulating the entire balancing process until full convergence required excessive computational time in Simulink. To resolve this bottleneck, average balancing current data for various SoC states were extracted, and a **reduced-order mathematical model** was designed utilizing data interpolation.
+![Figure 3: Reduced Order Model](Part3_Figures/Figure3_Reduced%20Model.png)
+Using this reduced-order model, the total balancing time could be calculated rapidly and accurately through pure mathematical computations, bypassing the need to simulate the high-frequency switching dynamics over long periods. The projected total balancing time is illustrated below.
+![Figure 4: Total Balancing Time](Part3_Figures/Figure4_Balancing%20Time.png)
+Finally, based on the validated simulation models, the physical prototype of the active balancing circuit was designed and routed using **KiCad**, paving the way for hardware manufacturing and real-world experimental testing.
+![Figure 5: PCB Prototype Design](Part3_Figures/Figure5_Prototype.jpeg)
+
 ![Figure 2: Alternative Current Path](Part2_Figures/Figure2_Current%20Path.png)
 
 Finally, by integrating the advanced 2nd-order ECM battery model with the 50% duty cycle DTSC control strategy, full-scale system simulations were executed. The simulation results were then thoroughly analyzed to evaluate the balancing performance and overall energy transfer efficiency across the battery pack.
