@@ -1,5 +1,7 @@
 # TÜBİTAK 2209-A: Active Battery Balancing System
 > This project was initiated by **Yahya Ahmet Öğütcü** under the **TÜBİTAK 2209-A University Students Research Projects Support Program**, with the primary goal of designing a novel and highly efficient active battery balancing topology. 
+> 
+> ⚠️ **Disclaimer:** Please note that comprehensive technical details, specific mathematical calculations, and complete circuit schematics have been intentionally omitted from this public repository for academic confidentiality and intellectual property reasons.
 Following a comprehensive literature review, three distinct active balancing topologies were selected for detailed analysis and comparison: Single-Tiered Switched Capacitor, Double-Tiered Switched Capacitor, and Single-Tiered Switched Inductor. The initial phase of the project focuses on modeling and evaluating these topologies using MATLAB/Simulink.
 ---
 ## Phase 1: Simulated Topologies
@@ -31,19 +33,19 @@ Following the topology selection, research was conducted on State of Charge (SoC
 <p align="center">
   <img src="Part2_Figures/Figure1_Current%20Path.png" alt="Current Path Simulation">
   <br>
-  <em><b>Figure 1:</b> Internal current path simulation and parameters of the battery model.</em>
+  <em><b>Figure 4:</b> Internal current path simulation and parameters of the battery model.</em>
 </p>
 Once the accurate battery model was established, the focus shifted to the control logic of the DTSC topology. The control mechanism is intentionally straightforward but highly effective: it operates by driving the upper and lower balancing switches at a fixed **50% duty cycle**.
 <p align="center">
   <img src="Part2_Figures/Figure2_Current%20Path.png" alt="Alternative Current Path">
   <br>
-  <em><b>Figure 2:</b> Switch activation and alternative current path visualization.</em>
+  <em><b>Figure 5:</b> Switch activation and alternative current path visualization.</em>
 </p>
 Finally, by integrating the advanced 2nd-order ECM battery model with the 50% duty cycle DTSC control strategy, full-scale system simulations were executed. The simulation results were then thoroughly analyzed to evaluate the balancing performance and overall energy transfer efficiency across the battery pack.
 <p align="center">
   <img src="Part2_Figures/Figure3_Simulation%20Topology.png" alt="Complete Simulation Topology">
   <br>
-  <em><b>Figure 3:</b> The complete integrated simulation topology in Simulink.</em>
+  <em><b>Figure 6:</b> The complete integrated simulation topology in Simulink.</em>
 </p>
 ---
 ## Phase 3: Quasi-Resonant Topology & Prototyping
@@ -51,29 +53,29 @@ To more easily determine the optimal switching frequency of the DTSC topology, m
 <p align="center">
   <img src="Part3_Figures/Figure1_Quasi.png" alt="Quasi-Resonant Topology">
   <br>
-  <em><b>Figure 1:</b> Architecture of the Quasi-Resonant Double-Tiered Switched Capacitor.</em>
+  <em><b>Figure 7:</b> Architecture of the Quasi-Resonant Double-Tiered Switched Capacitor.</em>
 </p>
 After determining the optimal circuit parameters, the system was simulated for a highly unbalanced scenario where the initial states were **SoC1 > SoC2 > SoC3**. The resulting balancing waveforms successfully demonstrate the dynamic energy transfer between the cells.
 <p align="center">
   <img src="Part3_Figures/Figure2_Balancing%20Waves.png" alt="Balancing Waves">
   <br>
-  <em><b>Figure 2:</b> Scope outputs showing successful energy transfer and cell balancing over time.</em>
+  <em><b>Figure 8:</b> Scope outputs showing successful energy transfer and cell balancing over time.</em>
 </p>
 Because the system operates at a high switching frequency of **50 kHz**, simulating the entire balancing process until full convergence required excessive computational time in Simulink. To resolve this bottleneck, average balancing current data for various SoC states were extracted, and a **reduced-order mathematical model** was designed utilizing data interpolation.
 <p align="center">
   <img src="Part3_Figures/Figure3_Reduced%20Model.png" alt="Reduced Order Model">
   <br>
-  <em><b>Figure 3:</b> Derivation of the reduced-order mathematical model via interpolation.</em>
+  <em><b>Figure 9:</b> Derivation of the reduced-order mathematical model via interpolation.</em>
 </p>
 Using this reduced-order model, the total balancing time could be calculated rapidly and accurately through pure mathematical computations, bypassing the need to simulate the high-frequency switching dynamics over long periods. The projected total balancing time is illustrated below.
 <p align="center">
   <img src="Part3_Figures/Figure4_Balancing%20Time.png" alt="Total Balancing Time">
   <br>
-  <em><b>Figure 4:</b> Total calculated balancing time required for full cell convergence.</em>
+  <em><b>Figure 10:</b> Total calculated balancing time required for full cell convergence.</em>
 </p>
 Finally, based on the validated simulation models, the physical prototype of the active balancing circuit was designed and routed using **KiCad**, paving the way for hardware manufacturing and real-world experimental testing.
 <p align="center">
   <img src="Part3_Figures/Figure5_Prototype.jpeg" alt="PCB Prototype Design">
   <br>
-  <em><b>Figure 5:</b> Final PCB layout and prototype design rendered in KiCad.</em>
+  <em><b>Figure 11:</b> Final PCB layout and prototype design rendered in KiCad.</em>
 </p>
